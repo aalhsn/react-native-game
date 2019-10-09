@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { Content } from "native-base";
 //Components
 import GamePage from "./GamePage";
 import LosePage from "./LosePage";
 import WinPage from "./WinPage";
+
+//StyleSheet
+import styles from "./Styling";
 
 import { connect } from "react-redux";
 
@@ -24,9 +27,11 @@ class App extends Component {
     };
 
     return (
-      <Content>
+      <Content style={[styles.gussall_bg, { position: "relative", top: 20 }]}>
         <View>{currentPage()}</View>
-        <Text>HomePage</Text>
+        <View style={styles.title_border}>
+          <Text style={styles.guessall}>HomePage</Text>
+        </View>
       </Content>
     );
   }
