@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import { connect } from "react-redux";
+import * as actionCreators from "./redux/actions";
 
 class WinPage extends Component {
   render() {

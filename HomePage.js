@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
-
+import { Content } from "native-base";
 //Components
 import GamePage from "./GamePage";
 import LosePage from "./LosePage";
@@ -23,7 +23,12 @@ class App extends Component {
       }
     };
 
-    return <View>{currentPage()}</View>;
+    return (
+      <Content>
+        <View>{currentPage()}</View>
+        <Text>HomePage</Text>
+      </Content>
+    );
   }
 }
 

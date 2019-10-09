@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import { connect } from "react-redux";
+import * as actionCreators from "./redux/actions";
 
 class GamePage extends Component {
+  componentDidMount() {
+    {
+      this.props.generate();
+    }
+  }
   render() {
     return <Text>{this.props.indexes}</Text>;
   }
