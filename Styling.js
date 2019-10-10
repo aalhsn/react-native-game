@@ -174,7 +174,10 @@ const styles = StyleSheet.create({
 
   guessIcon: {
     width: 127,
-    height: 123
+    height: 123,
+    backgroundColor: 'white', 
+    borderRadius:20,
+
   },
 
   btncheck: {
