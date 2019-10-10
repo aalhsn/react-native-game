@@ -34,8 +34,8 @@ class GamePage extends Component {
       <FlatList 
         horizontal
         data = {cleanAttempts[cleanAttempts.length-1]}
-        renderItem = {({item}) => 
-          <View style = {{padding: 17}}>
+        renderItem = {({item, idx}) => 
+          <View key={idx} style = {{padding: 17}}>
             <Image source={item} style = {{backgroundColor: 'white', height: 60, width: 60, borderRadius:20, marginRight:5}}/>
   
           </View>}
@@ -47,9 +47,7 @@ class GamePage extends Component {
     <Image source={heart} style = {[styles.attempbox_icon,{position:"relative", bottom:45, left:35}]}/>
     </View>
 
-    <View style={[styles.attempbar_bottom, { position: "relative",bottom:15, left:174 }]}>
     
-    </View>
     {/* <View style={[styles.hintbox, { position: "relative",bottom:76, left:330 }]}>
     </View> */}
     
@@ -57,7 +55,7 @@ class GamePage extends Component {
     <View  style={[styles.greendot, { position: "relative",bottom:104, left:348 }]}></View>
     <View  style={[styles.greendot, { position: "relative",bottom:116, left:365 }]}></View>
     <View  style={[styles.greendot, { position: "relative",bottom:128, left:382 }]}></View> */}
-      <Text style={[ { position: "relative", left:250, bottom:70, fontSize:25 }]}>{this.props.attemptValidations}</Text>
+    <View style={[styles.attempbox, { position: "relative",marginTop:7, width:200, left:200 }]}><Text style={[ { position: "relative", left:30, bottom:0, marginTop:1,fontSize:30 }]}>{this.props.attemptValidations}</Text></View>
     {/* <View style={[styles.hintbox, { position: "relative",bottom:110, left:330 }]}>
     </View> */}
     {/* <View style={[styles.reddot, { position: "relative",bottom:126, left:332 }]}></View>
@@ -65,7 +63,7 @@ class GamePage extends Component {
     <View style={[styles.reddot, { position: "relative",bottom:150, left:365 }]}></View>
     <View style={[styles.reddot, { position: "relative",bottom:162, left:382 }]}></View> */}
 
-    <View style={[styles.playbox,{ position: "relative",bottom:0, left:20}]}></View>
+    <View style={[styles.playbox,{ position: "relative", bottom:15, left:20}]}></View>
 
     <TouchableOpacity onPress={()=>this.props.changeColors(0)} style = {{position:"relative", bottom:320, left:60}}><Image source={this.props.colors[0]} style = {styles.guessIcon}/></TouchableOpacity>
     <TouchableOpacity onPress={()=>this.props.changeColors(2)} style = {{position:"relative", bottom:290, left:60}}><Image source={this.props.colors[2]} style = {styles.guessIcon}/></TouchableOpacity>
