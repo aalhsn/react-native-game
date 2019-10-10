@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   gussall_bg: {
+    marginTop:20,
     width: "100%",
     height: "100%",
     backgroundColor: "#8691b6",
@@ -65,17 +66,17 @@ const styles = StyleSheet.create({
     height: 92.4,
     alignContent:"center",
     borderRadius: 30,
-    borderBottomRightRadius:0,
     backgroundColor: "#c1ccf1",
 
   },
 
   attempbar_bottom: {
-    width: 232,
-    height: 82.7,
-    borderBottomLeftRadius:30,
-    borderBottomRightRadius:30,
-    borderTopLeftRadius:0,
+    width: 200,
+    height: 35,
+    borderRadius:50,
+    // borderBottomLeftRadius:30,
+    // borderBottomRightRadius:30,
+    // borderTopLeftRadius:0,
     
     backgroundColor: "#c1ccf1"
   },
@@ -168,6 +169,7 @@ const styles = StyleSheet.create({
   playbox: {
     width: 370,
     height: 333,
+    marginTop:50,
     borderRadius: 50,
     backgroundColor: "#c1ccf1"
   },
@@ -215,6 +217,21 @@ const styles = StyleSheet.create({
     height: 350,
     borderRadius: 50,
     backgroundColor: "#0bd22b"
+  },
+
+  startBox: {
+    width: 311,
+    height: 350,
+    borderRadius: 50,
+    backgroundColor: "#3d455e",
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowRadius: 4,
+    shadowOpacity: 1
+    
   },
 
   loseBox: {

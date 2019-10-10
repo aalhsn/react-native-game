@@ -3,6 +3,7 @@
 export const heart = require('./attempt.png'); 
 export const greendot = require('./greendot.png'); 
 export const reddot = require('./reddot.png'); 
+export const won = require('./won.png'); 
 
 
 export const guess = require('./guess.png'); 

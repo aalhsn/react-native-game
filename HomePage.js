@@ -11,11 +11,15 @@ import WinPage from "./WinPage";
 import styles from "./Styling";
 
 import { connect } from "react-redux";
+import StartPage from "./StartPage";
 
 class App extends Component {
   render() {
    
     let currentPage = () => {
+      if (this.props.mode === "start") {
+        return <StartPage/>;
+      }
       if (this.props.mode === "inProgress") {
         return <GamePage />;
       }

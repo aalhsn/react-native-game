@@ -12,6 +12,7 @@ import HomePage from "./HomePage";
 import WinPage from "./WinPage";
 import LosePage from "./LosePage";
 import GamePage from "./GamePage";
+import StartPage from "./StartPage";
 
 export default function App() {
   return (

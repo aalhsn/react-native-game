@@ -21,7 +21,7 @@ const initialState = {
   attempts: 1,
   attemptColors: [],
   attemptValidations: [],
-  mode: "inProgress"
+  mode: "start"
 };
 console.log(img[0])
 const reducer = (state = initialState, action) => {
@@ -116,9 +116,9 @@ const reducer = (state = initialState, action) => {
         randomAnswer.forEach((ans, ansIndex) => {
           if (input === ans) {
             if (choiceIndex === ansIndex) {
-              check.push("-1");
+              check.push("✅");
             } else {
-              check.push("-0");
+              check.push("⚠️");
             }
           }
         });
@@ -126,10 +126,10 @@ const reducer = (state = initialState, action) => {
 
       if (
         check.length === 4 &&
-        check[0] == "-1" &&
-        check[1] == "-1" &&
-        check[2] == "-1" &&
-        check[3] == "-1"
+        check[0] == "✅" &&
+        check[1] == "✅" &&
+        check[2] == "✅" &&
+        check[3] == "✅"
       ) {
         return {
           ...state,
