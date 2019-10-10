@@ -9,6 +9,9 @@ import store from "./redux";
 
 //Components
 import HomePage from "./HomePage";
+import WinPage from "./WinPage";
+import LosePage from "./LosePage";
+import GamePage from "./GamePage";
 
 export default function App() {
   return (

@@ -1,93 +1,44 @@
 import * as actionTypes from "../actions/actionTypes";
 import img from "../../data";
 import React from "react";
+import { Image,  } from "react-native";
+
+import {greendot, reddot} from '../../assets/imgs';
+
+
 
 let validationsList = [];
 let check = [];
 let randomAnswer = [];
 const initialState = {
   colors: [
-    <img width="50" height="50" src={img[0].imageUrl} />,
-    <img width="50" height="50" src={img[0].imageUrl} />,
-    <img width="50" height="50" src={img[0].imageUrl} />,
-    <img width="50" height="50" src={img[0].imageUrl} />
+    img[0].imageUrl,
+    img[0].imageUrl,
+    img[0].imageUrl,
+    img[0].imageUrl,
   ],
   indexes: [1, 1, 1, 1],
   attempts: 1,
-  attemptColors: [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-  ],
-  attemptValidations: [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-  ],
-
+  attemptColors: [],
+  attemptValidations: [],
   mode: "inProgress"
 };
-
+console.log(img[0])
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.PLAY_AGAIN:
       return {
         ...state,
         colors: [
-          <img width="50" height="50" src={img[0].imageUrl} />,
-          <img width="50" height="50" src={img[0].imageUrl} />,
-          <img width="50" height="50" src={img[0].imageUrl} />,
-          <img width="50" height="50" src={img[0].imageUrl} />
+          img[0].imageUrl,
+          img[0].imageUrl,
+          img[0].imageUrl,
+          img[0].imageUrl,
         ],
         indexes: [1, 1, 1, 1],
         attempts: 1,
-        attemptColors: [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ],
-
-        attemptValidations: [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ],
+        attemptColors: [],
+        attemptValidations: [],
         mode: "inProgress"
       };
 
@@ -98,7 +49,7 @@ const reducer = (state = initialState, action) => {
         let newIndex = newIndexes[index]++;
         const newColors = state.colors;
         newColors[index] = (
-          <img width="50" height="50" src={img[newIndex].imageUrl} />
+          img[newIndex].imageUrl
         );
         return {
           ...state,
@@ -109,7 +60,7 @@ const reducer = (state = initialState, action) => {
         const newIndexes = state.indexes;
         newIndexes[index] = 2;
         const newColors = state.colors;
-        newColors[index] = <img width="50" height="50" src={img[1].imageUrl} />;
+        newColors[index] = img[1].imageUrl
         return {
           ...state,
           indexes: [...state.indexes],
@@ -127,12 +78,13 @@ const reducer = (state = initialState, action) => {
         indexes.filter((item, index) => indexes.indexOf(item) != index);
       let isThereDublicates = findDuplicates(indexes);
       if (isThereDublicates.length === 0 && !indexes.includes(1)) {
-        console.log("PASS");
+        
         const attemptsList = state.colors;
         let no = state.attempts;
+        console.log(no)
         const newAttemptColors = state.attemptColors;
         newAttemptColors[no] = attemptsList;
-        console.log();
+      
         return {
           ...state,
           attemptColors: [...state.attemptColors],
@@ -164,9 +116,9 @@ const reducer = (state = initialState, action) => {
         randomAnswer.forEach((ans, ansIndex) => {
           if (input === ans) {
             if (choiceIndex === ansIndex) {
-              check.push("vr");
+              check.push("-1");
             } else {
-              check.push("r");
+              check.push("-0");
             }
           }
         });
@@ -174,36 +126,35 @@ const reducer = (state = initialState, action) => {
 
       if (
         check.length === 4 &&
-        check[0] == "vr" &&
-        check[1] == "vr" &&
-        check[2] == "vr" &&
-        check[3] == "vr"
+        check[0] == "-1" &&
+        check[1] == "-1" &&
+        check[2] == "-1" &&
+        check[3] == "-1"
       ) {
         return {
           ...state,
           mode: "Win"
         };
       } else {
-        let redColor = <img width="20" height="20" src={img[1].imageUrl} />;
-        let greenColor = <img width="20" height="20" src={img[3].imageUrl} />;
+        let redColor = <Image source={reddot} style = {{backgroundColor: 'white', height: 60, width: 60, borderRadius:20, marginRight:5}}/>
+        let greenColor = <Image source={greendot} style = {{backgroundColor: 'white', height: 60, width: 60, borderRadius:20, marginRight:5}}/>
         let sortedCheck = check.sort().reverse();
         sortedCheck.forEach(checkValue => {
-          if (checkValue === "vr") {
+          if (checkValue === "-1") {
             sortedCheckList.push(greenColor);
           }
         });
         sortedCheck.forEach(checkValue => {
-          if (checkValue === "r") {
+          if (checkValue === "-0") {
             sortedCheckList.push(redColor);
           }
         });
-        console.log(sortedCheck);
-        console.log(sortedCheckList);
+       
         const newAttempVaildations = state.attemptValidations;
         newAttempVaildations[no] = sortedCheckList;
         return {
           ...state,
-          attemptValidations: [...state.attemptValidations]
+          attemptValidations: sortedCheck
         };
       }
 

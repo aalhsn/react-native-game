@@ -4,13 +4,19 @@ const styles = StyleSheet.create({
   gussall_bg: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#8691b6"
+    backgroundColor: "#8691b6",
+    // justifyContent: "center",
+    // alignItems: "center",
   },
 
   title_border: {
-    width: 341,
-    height: 58,
-    borderRadius: 10,
+    height: 80,
+    width: "95%",
+    borderBottomLeftRadius:10,
+    borderBottomRightRadius:10,
+    borderTopLeftRadius:30,
+    borderTopRightRadius:30,
+    left:10,
     backgroundColor: "#3d455e",
     shadowColor: "rgba(0, 0, 0, 0.25)",
     shadowOffset: {
@@ -23,6 +29,7 @@ const styles = StyleSheet.create({
 
   guessall: {
     width: 278,
+    textAlignVertical:"center",
     height: 60,
     fontSize: 36,
     fontWeight: "normal",
@@ -37,17 +44,39 @@ const styles = StyleSheet.create({
     textShadowRadius: 4
   },
 
+  guessall2: {
+    width: 100,
+    textAlignVertical:"center",
+    height: "100%",
+    fontSize: 70,
+    fontWeight: "normal",
+    fontStyle: "normal",
+    letterSpacing: 0,
+    color: "#ffffff",
+    textShadowColor: "rgba(0, 0, 0, 0.25)",
+    textShadowOffset: {
+      width: 0,
+      height: 4
+    },
+    textShadowRadius: 4
+  },
   attempbar_top: {
-    width: 341,
+    width: "95%",
     height: 92.4,
-    borderRadius: 20,
-    backgroundColor: "#c1ccf1"
+    alignContent:"center",
+    borderRadius: 30,
+    borderBottomRightRadius:0,
+    backgroundColor: "#c1ccf1",
+
   },
 
   attempbar_bottom: {
     width: 232,
     height: 82.7,
-    borderRadius: 50,
+    borderBottomLeftRadius:30,
+    borderBottomRightRadius:30,
+    borderTopLeftRadius:0,
+    
     backgroundColor: "#c1ccf1"
   },
   yourLastAttempt: {
@@ -61,8 +90,8 @@ const styles = StyleSheet.create({
   },
 
   correntPlacesCorrentLogos: {
-    width: 147,
-    height: 11,
+    width: "100%",
+    height: 20,
     fontSize: 11,
     fontWeight: "bold",
     fontStyle: "normal",
@@ -71,8 +100,8 @@ const styles = StyleSheet.create({
   },
 
   incorrectPlacesCorrentLogos: {
-    width: 158,
-    height: 11,
+    width: "100%",
+    height: 20,
     fontSize: 11,
     fontWeight: "bold",
     fontStyle: "normal",
@@ -81,8 +110,8 @@ const styles = StyleSheet.create({
   },
 
   hintbox: {
-    width: 35,
-    height: 36,
+    width:70,
+    height: 20,
     borderRadius: 8,
     backgroundColor: "#ffffff",
     shadowColor: "rgba(0, 0, 0, 0.25)",
@@ -95,19 +124,21 @@ const styles = StyleSheet.create({
   },
 
   greendot: {
-    width: 10,
-    height: 10,
+    width: 12,
+    height: 12,
+    borderRadius: 50,
     backgroundColor: "#17cd29"
   },
 
   reddot: {
-    width: 10,
-    height: 10,
+    width: 12,
+    height: 12,
+    borderRadius: 50,
     backgroundColor: "#ff0000"
   },
 
   attempbox: {
-    width: 96,
+    width: 150,
     height: 42,
     borderRadius: 20,
     backgroundColor: "#c1ccf1",
@@ -121,8 +152,8 @@ const styles = StyleSheet.create({
   },
   attempbox_text: {
     width: 44,
-    height: 20,
-    fontSize: 36,
+    height: 50,
+    fontSize: 30,
     fontWeight: "bold",
     fontStyle: "normal",
     letterSpacing: 0,
@@ -135,7 +166,7 @@ const styles = StyleSheet.create({
   },
 
   playbox: {
-    width: 334,
+    width: 370,
     height: 333,
     borderRadius: 50,
     backgroundColor: "#c1ccf1"
@@ -174,7 +205,23 @@ const styles = StyleSheet.create({
       height: 4
     },
     textShadowRadius: 4
+  },
+
+  winBox: {
+    width: 311,
+    height: 350,
+    borderRadius: 50,
+    backgroundColor: "#0bd22b"
+  },
+
+  loseBox: {
+    width: 311,
+    height: 350,
+    borderRadius: 50,
+    backgroundColor: "red"
   }
 });
 
 export default styles;
+
+
